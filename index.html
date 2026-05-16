@@ -1,0 +1,1994 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>АЗС Нафта — АЗС в Ногинске | ш. Энтузиастов, 64Б</title>
+    <link href="https://fontsource.fra1.cdn.digitaloceanspaces.com/fonts/inter/400.css" rel="stylesheet">
+    <link href="https://fontsource.fra1.cdn.digitaloceanspaces.com/fonts/inter/500.css" rel="stylesheet">
+    <link href="https://fontsource.fra1.cdn.digitaloceanspaces.com/fonts/inter/600.css" rel="stylesheet">
+    <link href="https://fontsource.fra1.cdn.digitaloceanspaces.com/fonts/inter/700.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a56db;
+            --primary-dark: #1240a8;
+            --accent: #f5c842;
+            --accent-dark: #e0b530;
+            --bg: #f5f7fa;
+            --card: #ffffff;
+            --text: #1a1a2e;
+            --text-secondary: #6b7280;
+            --text-light: #9ca3af;
+            --border: #e5e7eb;
+            --success: #10b981;
+            --star: #f5c842;
+            --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
+            --shadow-lg: 0 4px 24px rgba(0,0,0,0.1);
+            --radius: 16px;
+            --radius-sm: 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, var(--primary), #3b82f6);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 14px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            background: rgba(26,86,219,0.06);
+        }
+
+        .nav-phone {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 14px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+
+        .nav-phone:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .nav-phone svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Hero */
+        .hero {
+            margin-top: 64px;
+            position: relative;
+            height: 520px;
+            overflow: hidden;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.05) 100%);
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 48px 24px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 6px 14px;
+            border-radius: 20px;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .badge-dot {
+            width: 7px;
+            height: 7px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero-title {
+            color: white;
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+        }
+
+        .hero-subtitle {
+            color: rgba(255,255,255,0.8);
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .hero-stat {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(10px);
+            padding: 10px 18px;
+            border-radius: 12px;
+            color: white;
+        }
+
+        .hero-stat-rating {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .hero-stat-stars {
+            display: flex;
+            gap: 2px;
+        }
+
+        .hero-stat-stars svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--star);
+        }
+
+        .hero-stat-count {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        .hero-stat-divider {
+            width: 1px;
+            height: 24px;
+            background: rgba(255,255,255,0.3);
+        }
+
+        .hero-stat-hours {
+            font-size: 13px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 24px 80px;
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 32px;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 4px;
+            background: var(--card);
+            padding: 4px;
+            border-radius: 12px;
+            margin-bottom: 28px;
+            box-shadow: var(--shadow);
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 10px 16px;
+            border: none;
+            background: transparent;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 8px rgba(26,86,219,0.3);
+        }
+
+        .tab-btn:hover:not(.active) {
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 28px;
+            box-shadow: var(--shadow);
+            margin-bottom: 24px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-title svg {
+            width: 22px;
+            height: 22px;
+            color: var(--primary);
+        }
+
+        /* Reviews */
+        .reviews-summary {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 24px;
+        }
+
+        .reviews-big-rating {
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .reviews-big-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1;
+        }
+
+        .reviews-big-stars {
+            display: flex;
+            gap: 2px;
+            justify-content: center;
+            margin: 6px 0;
+        }
+
+        .reviews-big-stars svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--star);
+        }
+
+        .reviews-big-stars svg.empty {
+            fill: #e5e7eb;
+        }
+
+        .reviews-big-count {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .reviews-bars {
+            flex: 1;
+        }
+
+        .review-bar-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+
+        .review-bar-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            min-width: 12px;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .review-bar-label svg {
+            width: 10px;
+            height: 10px;
+            fill: var(--star);
+        }
+
+        .review-bar-track {
+            flex: 1;
+            height: 6px;
+            background: #f0f0f0;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .review-bar-fill {
+            height: 100%;
+            background: var(--star);
+            border-radius: 3px;
+            transition: width 0.8s ease;
+        }
+
+        .review-bar-count {
+            font-size: 12px;
+            color: var(--text-light);
+            min-width: 24px;
+            text-align: right;
+        }
+
+        /* Review Item */
+        .review-item {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .review-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .review-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 15px;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .review-avatar.a1 { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .review-avatar.a2 { background: linear-gradient(135deg, #f093fb, #f5576c); }
+        .review-avatar.a3 { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+
+        .review-info {
+            flex: 1;
+        }
+
+        .review-name {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .review-level {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .review-date {
+            font-size: 12px;
+            color: var(--text-light);
+            white-space: nowrap;
+        }
+
+        .review-stars {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 10px;
+        }
+
+        .review-stars svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--star);
+        }
+
+        .review-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .review-text .read-more {
+            color: var(--primary);
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .review-likes {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .review-like-btn {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background: none;
+            border: 1px solid var(--border);
+            padding: 4px 10px;
+            border-radius: 16px;
+            font-size: 12px;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .review-like-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .review-like-btn svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .review-response {
+            margin-top: 14px;
+            padding: 14px 16px;
+            background: var(--bg);
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--primary);
+        }
+
+        .review-response-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .review-response-text {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Photos Grid */
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .photo-item {
+            aspect-ratio: 1;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .photo-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0);
+            transition: background 0.3s;
+        }
+
+        .photo-item:hover::after {
+            background: rgba(0,0,0,0.1);
+        }
+
+        /* Gallery Modal */
+        .gallery-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background: rgba(0,0,0,0.92);
+            backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .gallery-modal.active {
+            display: flex;
+        }
+
+        .gallery-modal img {
+            max-width: 90%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+            animation: zoomIn 0.3s ease;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .gallery-close {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .gallery-close:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .gallery-nav:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .gallery-prev { left: 20px; }
+        .gallery-next { right: 20px; }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 96px;
+            align-self: start;
+        }
+
+        .sidebar-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            margin-bottom: 16px;
+        }
+
+        .sidebar-card-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .contact-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .contact-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon svg {
+            width: 18px;
+            height: 18px;
+            color: var(--primary);
+        }
+
+        .contact-label {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .contact-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+            margin-top: 2px;
+        }
+
+        .contact-value a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .contact-value a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hours */
+        .hours-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background: rgba(16,185,129,0.08);
+            border-radius: var(--radius-sm);
+            margin-bottom: 16px;
+        }
+
+        .hours-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .hours-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--success);
+        }
+
+        .hours-grid {
+            display: grid;
+            gap: 4px;
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            font-size: 13px;
+        }
+
+        .hours-day {
+            color: var(--text-secondary);
+        }
+
+        .hours-time {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .hours-row.today {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .hours-row.today .hours-time {
+            color: var(--primary);
+        }
+
+        /* Map */
+        .map-container {
+            border-radius: var(--radius);
+            overflow: hidden;
+            height: 220px;
+            background: #e8ecf1;
+            position: relative;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #e8ecf1, #d1d5db);
+            color: var(--text-secondary);
+            gap: 8px;
+        }
+
+        .map-placeholder svg {
+            width: 40px;
+            height: 40px;
+            color: var(--primary);
+        }
+
+        .map-placeholder span {
+            font-size: 13px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 8px rgba(26,86,219,0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            box-shadow: 0 4px 16px rgba(26,86,219,0.35);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: rgba(26,86,219,0.06);
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .btn-group .btn {
+            flex: 1;
+        }
+
+        /* Transport */
+        .transport-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .transport-item:last-child {
+            border-bottom: none;
+        }
+
+        .transport-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .transport-icon.bus {
+            background: rgba(26,86,219,0.1);
+            color: var(--primary);
+        }
+
+        .transport-icon.taxi {
+            background: rgba(245,200,66,0.15);
+            color: var(--accent-dark);
+        }
+
+        .transport-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .transport-info {
+            flex: 1;
+        }
+
+        .transport-name {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .transport-detail {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 2px;
+        }
+
+        .transport-action {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 16px;
+            background: var(--bg);
+            border-radius: var(--radius-sm);
+        }
+
+        .feature-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .feature-text {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), #3b82f6);
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        .cta-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-text {
+            font-size: 15px;
+            opacity: 0.85;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            background: white;
+            color: var(--primary);
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.25s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text);
+            color: rgba(255,255,255,0.6);
+            padding: 40px 24px;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-logo {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        .footer-name {
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .footer-copy {
+            font-size: 13px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Scroll to top */
+        .scroll-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(26,86,219,0.4);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s;
+            z-index: 50;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 24px rgba(26,86,219,0.5);
+        }
+
+        .scroll-top svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .main {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .hero {
+                height: 400px;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-stats {
+                flex-wrap: wrap;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .reviews-summary {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .photos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                height: 340px;
+            }
+
+            .hero-title {
+                font-size: 26px;
+            }
+
+            .hero-content {
+                padding: 32px 16px 24px;
+            }
+
+            .hero-stats {
+                gap: 12px;
+            }
+
+            .hero-stat {
+                padding: 8px 12px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .tabs {
+                overflow-x: auto;
+            }
+
+            .tab-btn {
+                white-space: nowrap;
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+
+            .cta-section {
+                padding: 28px 20px;
+            }
+
+            .cta-title {
+                font-size: 20px;
+            }
+        }
+
+        /* Animations */
+        .animate-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .animate-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header" id="header">
+    <div class="header-inner">
+        <a href="#" class="logo">
+            <div class="logo-icon">НФ</div>
+            <div class="logo-text"><span>Нафта</span> — АЗС</div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#overview">Обзор</a></li>
+            <li><a href="#photos">Фото</a></li>
+            <li><a href="#reviews">Отзывы</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+        </ul>
+        <a href="tel:+79269288245" class="nav-phone">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +7 (926) 928-82-45
+        </a>
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+    <img src="https://image.qwenlm.ai/public_source/d628fe59-f066-40dc-ba4a-eefc8e45e605/1a6268785-c506-495b-9c73-ffb18e3cd685.png" alt="АЗС Нафта" class="hero-img">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="hero-badge">
+            <span class="badge-dot"></span>
+            Круглосуточно
+        </div>
+        <h1 class="hero-title">АЗС «Нафта»</h1>
+        <p class="hero-subtitle">ш. Энтузиастов, 64Б, Ногинск</p>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <span class="hero-stat-rating">4.1</span>
+                <div class="hero-stat-stars">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24" style="opacity:0.3"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+                <span class="hero-stat-count">74 оценки</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+                <span class="hero-stat-hours">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    24/7
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content -->
+<main class="main" id="overview">
+    <div class="content">
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="overview-tab">Обзор</button>
+            <button class="tab-btn" data-tab="photos-tab">Фото</button>
+            <button class="tab-btn" data-tab="reviews-tab">Отзывы</button>
+            <button class="tab-btn" data-tab="features-tab">Особенности</button>
+        </div>
+
+        <!-- Overview Tab -->
+        <div class="tab-content active" id="overview-tab">
+            <div class="card animate-in">
+                <div class="card-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Как добраться
+                </div>
+                <div class="transport-item">
+                    <div class="transport-icon bus">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                    </div>
+                    <div class="transport-info">
+                        <div class="transport-name">ПОГАТ</div>
+                        <div class="transport-detail">Маршрут №4 • остановка в 660 м</div>
+                    </div>
+                    <span class="transport-action">Маршрут →</span>
+                </div>
+                <div class="transport-item">
+                    <div class="transport-icon taxi">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 2 4 4 4 8v10h16V8c0-4-4-6-8-6z"/><circle cx="7.5" cy="15.5" r="1.5"/><circle cx="16.5" cy="15.5" r="1.5"/><path d="M4 18h16"/></svg>
+                    </div>
+                    <div class="transport-info">
+                        <div class="transport-name">Такси</div>
+                        <div class="transport-detail">Средняя стоимость от 199 ₽</div>
+                    </div>
+                    <span class="transport-action">Заказать →</span>
+                </div>
+            </div>
+
+            <div class="card animate-in">
+                <div class="card-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                    Способы оплаты
+                </div>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">💳</div>
+                        <span class="feature-text">Наличные</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"></div>
+                        <span class="feature-text">Банковские карты</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"></div>
+                        <span class="feature-text">Скидка за наличный расчёт</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"></div>
+                        <span class="feature-text">АИ-92, АИ-95, ДТ</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card animate-in">
+                <div class="card-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Расположение
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2254.5!2d38.435!3d55.857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTXCsDUxJzI1LjIiTiAzOMKwMjYnMDYuMCJF!5e0!3m2!1sru!2sru!4v1" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Карта расположения АЗС Нафта"></iframe>
+                </div>
+                <div class="btn-group">
+                    <a href="https://yandex.ru/maps/-/CDa0K5" target="_blank" class="btn btn-outline">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                        Открыть в Яндекс Картах
+                    </a>
+                    <button class="btn btn-primary" onclick="showToast('Маршрут построен')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                        Маршрут
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photos Tab -->
+        <div class="tab-content" id="photos-tab">
+            <div class="card animate-in" style="padding: 0; overflow: hidden;">
+                <div class="photos-grid">
+                    <div class="photo-item" onclick="openGallery(0)">
+                        <img src="https://image.qwenlm.ai/public_source/d628fe59-f066-40dc-ba4a-eefc8e45e605/1a6268785-c506-495b-9c73-ffb18e3cd685.png" alt="АЗС Нафта — фасад">
+                    </div>
+                    <div class="photo-item" onclick="openGallery(1)">
+                        <img src="https://image.qwenlm.ai/public_source/d628fe59-f066-40dc-ba4a-eefc8e45e605/1c9c3265a-d35c-40fa-98e1-c2bcb99ce471.png" alt="АЗС Нафта — ночь">
+                    </div>
+                    <div class="photo-item" onclick="openGallery(2)">
+                        <img src="https://image.qwenlm.ai/public_source/d628fe59-f066-40dc-ba4a-eefc8e45e605/1284a1dd7-205a-4904-931f-cbab46931a77.png" alt="Магазин при АЗС">
+                    </div>
+                    <div class="photo-item" onclick="openGallery(3)">
+                        <img src="https://image.qwenlm.ai/public_source/d628fe59-f066-40dc-ba4a-eefc8e45e605/1a6268785-c506-495b-9c73-ffb18e3cd685.png" alt="Топливные колонки" style="filter: hue-rotate(30deg) saturate(1.2);">
+                    </div>
+                    <div class="photo-item" onclick="openGallery(4)">
+                        <img src="https://image.qwenlm.ai/public_source/d628fe59-f066-40dc-ba4a-eefc8e45e605/1c9c3265a-d35c-40fa-98e1-c2bcb99ce471.png" alt="Заправочная территория" style="filter: hue-rotate(-20deg) brightness(0.9);">
+                    </div>
+                    <div class="photo-item" onclick="openGallery(5)">
+                        <img src="https://image.qwenlm.ai/public_source/d628fe59-f066-40dc-ba4a-eefc8e45e605/1284a1dd7-205a-4904-931f-cbab46931a77.png" alt="Интерьер магазина" style="filter: hue-rotate(15deg) contrast(1.1);">
+                    </div>
+                </div>
+            </div>
+            <div class="card animate-in" style="text-align: center;">
+                <p style="color: var(--text-light); font-size: 14px; margin-bottom: 16px;">Поделитесь впечатлениями</p>
+                <button class="btn btn-outline" onclick="showToast('Функция загрузки фото')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                    Добавить фото или видео
+                </button>
+            </div>
+        </div>
+
+        <!-- Reviews Tab -->
+        <div class="tab-content" id="reviews-tab">
+            <div class="card animate-in">
+                <div class="card-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    Отзывы и оценки
+                </div>
+
+                <div class="reviews-summary">
+                    <div class="reviews-big-rating">
+                        <div class="reviews-big-number">4.1</div>
+                        <div class="reviews-big-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" class="empty"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <div class="reviews-big-count">74 оценки</div>
+                    </div>
+                    <div class="reviews-bars">
+                        <div class="review-bar-row">
+                            <span class="review-bar-label">5 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                            <div class="review-bar-track"><div class="review-bar-fill" style="width: 55%;"></div></div>
+                            <span class="review-bar-count">41</span>
+                        </div>
+                        <div class="review-bar-row">
+                            <span class="review-bar-label">4 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                            <div class="review-bar-track"><div class="review-bar-fill" style="width: 22%;"></div></div>
+                            <span class="review-bar-count">16</span>
+                        </div>
+                        <div class="review-bar-row">
+                            <span class="review-bar-label">3 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                            <div class="review-bar-track"><div class="review-bar-fill" style="width: 11%;"></div></div>
+                            <span class="review-bar-count">8</span>
+                        </div>
+                        <div class="review-bar-row">
+                            <span class="review-bar-label">2 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                            <div class="review-bar-track"><div class="review-bar-fill" style="width: 5%;"></div></div>
+                            <span class="review-bar-count">4</span>
+                        </div>
+                        <div class="review-bar-row">
+                            <span class="review-bar-label">1 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                            <div class="review-bar-track"><div class="review-bar-fill" style="width: 7%;"></div></div>
+                            <span class="review-bar-count">5</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 1 -->
+                <div class="review-item">
+                    <div class="review-header">
+                        <div class="review-avatar a1">Г</div>
+                        <div class="review-info">
+                            <div class="review-name">ГОША 2</div>
+                            <div class="review-level">Знаток города 20 уровня</div>
+                        </div>
+                        <div class="review-date">5 марта</div>
+                    </div>
+                    <div class="review-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <div class="review-text">
+                        Отличная заправка по приемлемым ценам. Бензин хорошего качества — постоянно приезжаем сюда заливаться до полного бака. Приятное обслуживание. Всегда свободно и нету суеты никакой.
+                    </div>
+                    <div class="review-likes">
+                        <button class="review-like-btn" onclick="toggleLike(this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                            3
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-item">
+                    <div class="review-header">
+                        <div class="review-avatar a2">И</div>
+                        <div class="review-info">
+                            <div class="review-name">Инкогнито 1638</div>
+                            <div class="review-level">Знаток города 6 уровня</div>
+                        </div>
+                        <div class="review-date">26 ноября 2025</div>
+                    </div>
+                    <div class="review-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <div class="review-text">
+                        Бензин, вроде не плохой, заправляюсь уже не первый раз. За наличку дешевле — это приятно!
+                    </div>
+                    <div class="review-response">
+                        <div class="review-response-label">Ответ организации</div>
+                        <div class="review-response-text">Благодарим вас за постоянство! Рады, что вас устраивает качество топлива и цены. Ждём вас снова!</div>
+                    </div>
+                    <div class="review-likes">
+                        <button class="review-like-btn" onclick="toggleLike(this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                            2
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-item">
+                    <div class="review-header">
+                        <div class="review-avatar a3">Д</div>
+                        <div class="review-info">
+                            <div class="review-name">Дмитрий</div>
+                            <div class="review-level">Знаток города 13 уровня</div>
+                        </div>
+                        <div class="review-date">25 февраля 2021</div>
+                    </div>
+                    <div class="review-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <div class="review-text">
+                        Заправка хорошая! Цены ниже из за того что в глубине бывших заводов и складов и не каждый поедет! Заправляю Туарег 2005 года 92 бензом — всё хорошо 👍 Соседи тоже у них заправляются — 95 и 92 льют…
+                    </div>
+                    <div class="review-likes">
+                        <button class="review-like-btn" onclick="toggleLike(this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                            5
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card animate-in" style="text-align: center;">
+                <p style="color: var(--text-light); font-size: 14px; margin-bottom: 16px;">Поделитесь своим опытом</p>
+                <button class="btn btn-primary" onclick="showToast('Форма отзыва скоро будет доступна')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    Оцените и напишите отзыв
+                </button>
+            </div>
+        </div>
+
+        <!-- Features Tab -->
+        <div class="tab-content" id="features-tab">
+            <div class="card animate-in">
+                <div class="card-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                    Особенности АЗС «Нафта»
+                </div>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🕐</div>
+                        <span class="feature-text">Круглосуточная работа</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">⛽</div>
+                        <span class="feature-text">АИ-92, АИ-95, ДТ</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💰</div>
+                        <span class="feature-text">Скидка за наличный расчёт</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🏪</div>
+                        <span class="feature-text">Магазин при АЗС</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">️</div>
+                        <span class="feature-text">Бесплатная парковка</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🚿</div>
+                        <span class="feature-text">Мойка автомобилей</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">️</div>
+                        <span class="feature-text">Подкачка шин</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"></div>
+                        <span class="feature-text">Безналичная оплата</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📍</div>
+                        <span class="feature-text">Удобное расположение</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"></div>
+                        <span class="feature-text">Приятное обслуживание</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card animate-in">
+                <div class="card-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    Режим работы
+                </div>
+                <div class="hours-status">
+                    <div class="hours-dot"></div>
+                    <span class="hours-text">Открыто круглосуточно</span>
+                </div>
+                <div class="hours-grid">
+                    <div class="hours-row">
+                        <span class="hours-day">Понедельник</span>
+                        <span class="hours-time">Круглосуточно</span>
+                    </div>
+                    <div class="hours-row">
+                        <span class="hours-day">Вторник</span>
+                        <span class="hours-time">Круглосуточно</span>
+                    </div>
+                    <div class="hours-row">
+                        <span class="hours-day">Среда</span>
+                        <span class="hours-time">Круглосуточно</span>
+                    </div>
+                    <div class="hours-row">
+                        <span class="hours-day">Четверг</span>
+                        <span class="hours-time">Круглосуточно</span>
+                    </div>
+                    <div class="hours-row">
+                        <span class="hours-day">Пятница</span>
+                        <span class="hours-time">Круглосуточно</span>
+                    </div>
+                    <div class="hours-row">
+                        <span class="hours-day">Суббота</span>
+                        <span class="hours-time">Круглосуточно</span>
+                    </div>
+                    <div class="hours-row">
+                        <span class="hours-day">Воскресенье</span>
+                        <span class="hours-time">Круглосуточно</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="contacts">
+        <div class="sidebar-card">
+            <div class="sidebar-card-title">Контакты</div>
+            <div class="contact-row">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div>
+                    <div class="contact-label">Телефон</div>
+                    <div class="contact-value"><a href="tel:+79269288245">+7 (926) 928-82-45</a></div>
+                </div>
+            </div>
+            <div class="contact-row">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                    <div class="contact-label">Адрес</div>
+                    <div class="contact-value">ш. Энтузиастов, 64Б</div>
+                    <div style="font-size: 12px; color: var(--text-light); margin-top: 2px;">Ногинск</div>
+                </div>
+            </div>
+            <div class="contact-row">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div>
+                    <div class="contact-label">Режим работы</div>
+                    <div class="contact-value" style="color: var(--success);">Круглосуточно</div>
+                </div>
+            </div>
+            <div class="btn-group" style="margin-top: 16px;">
+                <a href="tel:+79269288245" class="btn btn-primary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    Позвонить
+                </a>
+                <button class="btn btn-outline" onclick="showToast('Маршрут открыт в картах')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                    Маршрут
+                </button>
+            </div>
+        </div>
+
+        <div class="sidebar-card">
+            <div class="sidebar-card-title">График работы</div>
+            <div class="hours-status">
+                <div class="hours-dot"></div>
+                <span class="hours-text">Сейчас открыто</span>
+            </div>
+            <div class="hours-grid">
+                <div class="hours-row">
+                    <span class="hours-day">Пн — Вс</span>
+                    <span class="hours-time">00:00 — 24:00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-card">
+            <div class="sidebar-card-title">Рейтинг</div>
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                <span style="font-size: 36px; font-weight: 700;">4.1</span>
+                <div>
+                    <div style="display: flex; gap: 2px; margin-bottom: 4px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#f5c842"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#f5c842"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#f5c842"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#f5c842"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#e5e7eb"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <span style="font-size: 13px; color: var(--text-light);">74 оценки • 21 отзыв</span>
+                </div>
+            </div>
+            <button class="btn btn-outline btn-block" onclick="showToast('Форма оценки')">
+                Оценить АЗС
+            </button>
+        </div>
+
+        <div class="sidebar-card">
+            <div class="sidebar-card-title">Транспорт рядом</div>
+            <div class="transport-item" style="padding: 10px 0;">
+                <div class="transport-icon bus" style="width: 36px; height: 36px;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                </div>
+                <div class="transport-info">
+                    <div class="transport-name" style="font-size: 13px;">ПОГАТ, ост. 660 м</div>
+                    <div class="transport-detail">Маршрут №4</div>
+                </div>
+            </div>
+            <div class="transport-item" style="padding: 10px 0; border-bottom: none;">
+                <div class="transport-icon taxi" style="width: 36px; height: 36px;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><path d="M12 2C8 2 4 4 4 8v10h16V8c0-4-4-6-8-6z"/><circle cx="7.5" cy="15.5" r="1.5"/><circle cx="16.5" cy="15.5" r="1.5"/></svg>
+                </div>
+                <div class="transport-info">
+                    <div class="transport-name" style="font-size: 13px;">Такси</div>
+                    <div class="transport-detail">от 199 ₽</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+</main>
+
+<!-- CTA Section -->
+<section style="max-width: 1200px; margin: 0 auto; padding: 0 24px 60px;">
+    <div class="cta-section animate-in">
+        <h2 class="cta-title">Заправьтесь выгодно на АЗС «Нафта»</h2>
+        <p class="cta-text">Круглосуточно • Качественное топливо • Приятные цены</p>
+        <a href="tel:+79269288245" class="cta-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Позвонить: +7 (926) 928-82-45
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <div class="footer-logo">НФ</div>
+            <span class="footer-name">АЗС «Нафта»</span>
+        </div>
+        <div class="footer-copy">© 2026 АЗС «Нафта». Все права защищены.</div>
+        <div class="footer-links">
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Рекламировать компанию</a>
+        </div>
+    </div>
+</footer>
+
+<!-- Gallery Modal -->
+<div class="gallery-modal" id="galleryModal">
+    <button class="gallery-close" onclick="closeGallery()">✕</button>
+    <button class="gallery-nav gallery-prev" onclick="navigateGallery(-1)">❮</button>
+    <img id="galleryImg" src="" alt="Фото АЗС Нафта">
+    <button class="gallery-nav gallery-next" onclick="navigateGallery(1)">❯</button>
+</div>
+
+<!-- Toast -->
+<div id="toast" style="position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--text); color: white; padding: 12px 24px; border-radius: 12px; font-size: 14px; font-weight: 500; z-index: 300; transition: transform 0.3s ease; box-shadow: 0 8px 32px rgba(0,0,0,0.2); pointer-events: none;"></div>
+
+<!-- Scroll to top -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+    // Header scroll effect
+    const header = document.getElementById('header');
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 10) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+
+        if (window.scrollY > 400) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Tabs
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tabId = btn.dataset.tab;
+
+            tabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            tabContents.forEach(c => c.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+
+            // Trigger animations for newly visible elements
+            setTimeout(() => {
+                document.querySelectorAll('.tab-content.active .animate-in').forEach(el => {
+                    el.classList.add('visible');
+                });
+            }, 50);
+        });
+    });
+
+    // Gallery
+    const galleryImages = [
+        'https://image.qwenlm.ai/public_source/d628fe59-f066-40dc-ba4a-eefc8e45e605/1a6268785-c506-495b-9c73-ffb18e3cd685.png',
+        'https://image.qwenlm.ai/public_source/d628fe59-f066-40dc-ba4a-eefc8e45e605/1c9c3265a-d35c-40fa-98e1-c2bcb99ce471.png',
+        'https://image.qwenlm.ai/public_source/d628fe59-f066-40dc-ba4a-eefc8e45e605/1284a1dd7-205a-4904-931f-cbab46931a77.png',
+        'https://image.qwenlm.ai/public_source/d628fe59-f066-40dc-ba4a-eefc8e45e605/1a6268785-c506-495b-9c73-ffb18e3cd685.png',
+        'https://image.qwenlm.ai/public_source/d628fe59-f066-40dc-ba4a-eefc8e45e605/1c9c3265a-d35c-40fa-98e1-c2bcb99ce471.png',
+        'https://image.qwenlm.ai/public_source/d628fe59-f066-40dc-ba4a-eefc8e45e605/1284a1dd7-205a-4904-931f-cbab46931a77.png'
+    ];
+    let currentGalleryIndex = 0;
+
+    function openGallery(index) {
+        currentGalleryIndex = index;
+        const modal = document.getElementById('galleryModal');
+        const img = document.getElementById('galleryImg');
+        img.src = galleryImages[index];
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeGallery() {
+        document.getElementById('galleryModal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function navigateGallery(dir) {
+        currentGalleryIndex = (currentGalleryIndex + dir + galleryImages.length) % galleryImages.length;
+        const img = document.getElementById('galleryImg');
+        img.style.opacity = '0';
+        setTimeout(() => {
+            img.src = galleryImages[currentGalleryIndex];
+            img.style.opacity = '1';
+        }, 150);
+    }
+
+    document.getElementById('galleryModal').addEventListener('click', (e) => {
+        if (e.target === e.currentTarget) closeGallery();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (!document.getElementById('galleryModal').classList.contains('active')) return;
+        if (e.key === 'Escape') closeGallery();
+        if (e.key === 'ArrowLeft') navigateGallery(-1);
+        if (e.key === 'ArrowRight') navigateGallery(1);
+    });
+
+    // Like toggle
+    function toggleLike(btn) {
+        const svg = btn.querySelector('svg');
+        if (btn.dataset.liked === 'true') {
+            btn.dataset.liked = 'false';
+            svg.setAttribute('fill', 'none');
+            btn.style.color = '';
+            btn.style.borderColor = '';
+        } else {
+            btn.dataset.liked = 'true';
+            svg.setAttribute('fill', '#1a56db');
+            svg.setAttribute('stroke', '#1a56db');
+            btn.style.color = '#1a56db';
+            btn.style.borderColor = '#1a56db';
+        }
+    }
+
+    // Toast notification
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.style.transform = 'translateX(-50%) translateY(0)';
+        setTimeout(() => {
+            toast.style.transform = 'translateX(-50%) translateY(100px)';
+        }, 2500);
+    }
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.animate-in').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Highlight today's day in hours
+    const days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+    const today = days[new Date().getDay()];
+    document.querySelectorAll('.hours-row').forEach(row => {
+        const dayEl = row.querySelector('.hours-day');
+        if (dayEl && dayEl.textContent.includes(today.substring(0, 3))) {
+            row.classList.add('today');
+        }
+    });
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const target = document.getElementById(targetId);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
+
